@@ -2,7 +2,7 @@
 
 resource "aws_instance" "ec2" {
     count = length(var.instance_names)
-  ami           = var.image_id
+  ami           = data.aws_ami.ami_info.id
   instance_type = var.instance_names[count.index] == "db" ? "t2.small" : "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
 
@@ -11,7 +11,7 @@ resource "aws_instance" "ec2" {
   
   {
     Name = var.instance_names[count.index]
-    # Module = var.instance_names[count.index]
+    Module = var.instance_names[count.index]
   }
   )
 }

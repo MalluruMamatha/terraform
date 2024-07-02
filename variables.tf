@@ -1,8 +1,8 @@
 # ec2 instance related variables
 
-variable "image_id" {
-    default = "ami-041e2ea9402c46c32"
-}
+# variable "image_id" {
+#     default = "ami-041e2ea9402c46c32"
+# }
 
 variable "instance_type" {
   default = "t2.micro"
